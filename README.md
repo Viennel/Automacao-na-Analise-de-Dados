@@ -219,3 +219,13 @@ Ao término da execução, o notebook apresenta:
 # Autores
 
 Projeto desenvolvido para fins acadêmicos na disciplina de Ciência de Dados e Machine Learning, com foco na automação da análise de dados relacionados à crise global da água potável.
+
+Membros:
+
+* Vinicius Luis Silveira Barbosa
+* Augusto Derik Onorato da Rocha
+* Geilma Maria Melo Linhares
+* Átila Fontenele Carneiro da Cunha
+* Antonio Lucas Freire de Araújo
+* William do Vale Mesquita
+* Leandro Melo dos Santos
