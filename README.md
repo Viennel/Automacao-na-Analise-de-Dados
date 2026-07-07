@@ -2,284 +2,167 @@
 
 ## Descrição
 
-Este projeto realiza uma análise exploratória e a construção de modelos de Machine Learning para prever a potabilidade da água utilizando o conjunto de dados **Water Potability**.
+Este projeto tem como objetivo realizar a análise exploratória de dados e comparar diferentes algoritmos de Machine Learning para prever a potabilidade da água a partir de características físico-químicas das amostras.
 
-O objetivo é comparar diferentes algoritmos de classificação e identificar qual apresenta o melhor desempenho para determinar se uma amostra de água é potável ou não.
+O notebook contempla todo o fluxo de análise, incluindo:
 
-Além da análise estatística e visual dos dados, o projeto inclui:
-
+* carregamento dos dados;
 * tratamento de valores ausentes;
+* análise exploratória;
 * balanceamento das classes utilizando SMOTE;
-* treinamento de múltiplos modelos;
-* comparação de métricas de desempenho;
+* treinamento de modelos de classificação;
+* avaliação dos resultados;
+* comparação entre modelos;
 * registro dos experimentos utilizando MLflow.
+
+O projeto foi desenvolvido para execução no **Google Colab**.
 
 ---
 
 # Estrutura do Projeto
 
-```
+O projeto é composto pelos seguintes arquivos:
+
+```text
 Projeto/
 │
 ├── Projeto_de_Automação_na_Análise_de_Dados_da_Crise_Global_da_Água_Potável_(Equipe_3).ipynb
 ├── water_potability.csv
-├── comparacao_modelos.csv              # Gerado ao final da execução
-├── requirements.txt
 └── README.md
 ```
 
 ## Arquivos necessários
 
-### Obrigatórios
+Para executar o projeto são necessários apenas:
 
 * `Projeto_de_Automação_na_Análise_de_Dados_da_Crise_Global_da_Água_Potável_(Equipe_3).ipynb`
 * `water_potability.csv`
 
-### Gerados automaticamente
+---
 
-* `comparacao_modelos.csv`
-* diretório `mlruns/` criado pelo MLflow contendo o histórico dos experimentos.
+# Requisitos
+
+Para reproduzir o projeto é necessário possuir apenas:
+
+* Conta Google
+* Acesso ao Google Colab
+* Navegador de Internet
+
+Não é necessário instalar Python ou bibliotecas localmente, pois toda a execução ocorre no ambiente do Google Colab.
 
 ---
 
-# Dataset
+# Como executar o projeto
 
-O projeto utiliza o conjunto de dados **Water Potability Dataset**, contendo atributos físico-químicos da água.
+## 1. Abrir o notebook
 
-Entre as variáveis utilizadas estão:
-
-* pH
-* Hardness
-* Solids
-* Chloramines
-* Sulfate
-* Conductivity
-* Organic Carbon
-* Trihalomethanes
-* Turbidity
-
-A variável alvo é:
-
-```
-Potability
-```
-
-* 0 → Água não potável
-* 1 → Água potável
-
-O arquivo deve possuir o nome:
-
-```
-water_potability.csv
-```
-
-e permanecer na mesma pasta do notebook.
-
----
-
-# Tecnologias utilizadas
-
-* Python 3.10+
-* Pandas
-* NumPy
-* Matplotlib
-* Seaborn
-* Plotly
-* Scikit-Learn
-* XGBoost
-* Imbalanced-Learn (SMOTE)
-* MLflow
-
----
-
-# Instalação
-
-## 1. Clone o projeto
-
-```bash
-git clone <repositorio>
-cd <repositorio>
-```
-
-ou simplesmente coloque todos os arquivos em uma mesma pasta.
-
----
-
-## 2. Crie um ambiente virtual (opcional, porém recomendado)
-
-### Windows
-
-```bash
-python -m venv venv
-venv\Scripts\activate
-```
-
-### Linux/Mac
-
-```bash
-python3 -m venv venv
-
-source venv/bin/activate
-```
-
----
-
-## 3. Instale as dependências
-
-Crie um arquivo chamado **requirements.txt** com o seguinte conteúdo:
+Faça upload do arquivo
 
 ```text
-pandas
-numpy
-matplotlib
-seaborn
-plotly
-scikit-learn
-imbalanced-learn
-xgboost
-mlflow
-jupyter
-notebook
-ipykernel
+Projeto_de_Automação_na_Análise_de_Dados_da_Crise_Global_da_Água_Potável_(Equipe_3).ipynb
 ```
 
-Em seguida execute:
-
-```bash
-pip install -r requirements.txt
-```
+para o Google Colab ou abra-o diretamente pelo Google Drive.
 
 ---
 
-# Configuração
+## 2. Executar a célula de instalação
 
-Não é necessária nenhuma configuração adicional.
+O notebook possui uma célula inicial responsável por instalar automaticamente todas as bibliotecas necessárias para execução do projeto.
 
-Apenas certifique-se de que:
+Execute essa célula antes das demais.
 
-```
-water_potability.csv
-```
+---
 
-está na mesma pasta do notebook.
+## 3. Fazer upload do dataset
 
-Caso o notebook seja executado no Google Colab, existe uma célula que utiliza:
+Durante a execução será exibida uma janela para envio do arquivo de dados através do comando:
 
 ```python
 from google.colab import files
 uploaded = files.upload()
 ```
 
-Em execução local essa etapa pode ser ignorada, desde que o dataset já esteja disponível na pasta do projeto.
+Selecione o arquivo:
 
----
-
-# Execução
-
-Inicie o Jupyter Notebook:
-
-```bash
-jupyter notebook
-```
-
-ou
-
-```bash
-jupyter lab
-```
-
-Abra o notebook:
-
-```
-Projeto_de_Automação_na_Análise_de_Dados_da_Crise_Global_da_Água_Potável_(Equipe_3).ipynb
-```
-
-Execute todas as células em ordem.
-
----
-
-# Fluxo de execução
-
-O notebook realiza automaticamente as seguintes etapas:
-
-## 1. Importação das bibliotecas
-
-Carregamento de todas as dependências necessárias para manipulação de dados, visualização e Machine Learning.
-
----
-
-## 2. Carregamento do dataset
-
-Leitura do arquivo:
-
-```
+```text
 water_potability.csv
 ```
 
 ---
 
-## 3. Análise Exploratória
+## 4. Executar todas as células
 
-São realizadas análises como:
+Após o upload do dataset, execute o restante do notebook na ordem em que as células estão organizadas.
 
-* primeiras linhas do dataset;
+O notebook realizará automaticamente todas as etapas da análise.
+
+---
+
+# Fluxo de execução
+
+O notebook executa automaticamente as seguintes etapas:
+
+## 1. Instalação das dependências
+
+Instalação das bibliotecas utilizadas durante a análise e treinamento dos modelos.
+
+---
+
+## 2. Importação das bibliotecas
+
+Carregamento das bibliotecas de análise de dados, visualização e Machine Learning.
+
+---
+
+## 3. Carregamento do dataset
+
+Leitura do arquivo:
+
+```text
+water_potability.csv
+```
+
+---
+
+## 4. Análise Exploratória dos Dados
+
+Nesta etapa são realizadas análises como:
+
+* visualização das primeiras linhas;
 * estatísticas descritivas;
-* tipos das variáveis;
 * identificação de valores ausentes;
-* gráficos de distribuição;
-* histogramas;
-* mapa de correlação.
+* distribuição das variáveis;
+* gráficos exploratórios;
+* matriz de correlação.
 
 ---
 
-## 4. Pré-processamento
+## 5. Pré-processamento
 
-O notebook realiza:
+O notebook realiza automaticamente:
 
-* identificação dos valores nulos;
-* substituição dos valores ausentes pela mediana;
-* separação entre atributos e variável alvo.
-
----
-
-## 5. Divisão dos dados
-
-Os dados são separados em:
-
-* treino (80%)
-* teste (20%)
-
-utilizando estratificação das classes.
+* tratamento dos valores ausentes;
+* separação entre atributos e variável alvo;
+* preparação dos dados para treinamento.
 
 ---
 
-## 6. Balanceamento
+## 6. Divisão da base
 
-Como existe desbalanceamento entre as classes, é utilizado:
-
-```
-SMOTE
-```
-
-para gerar exemplos sintéticos da classe minoritária.
+Os dados são divididos em conjuntos de treino e teste utilizando amostragem estratificada.
 
 ---
 
-## 7. Padronização
+## 7. Balanceamento
 
-Os atributos são normalizados através de:
-
-```
-StandardScaler
-```
-
-antes do treinamento da Regressão Logística.
+É utilizado o algoritmo **SMOTE** para reduzir o desbalanceamento entre as classes.
 
 ---
 
 ## 8. Treinamento dos modelos
 
-São treinados três modelos:
+São treinados os seguintes algoritmos:
 
 * Regressão Logística
 * Random Forest
@@ -287,9 +170,9 @@ São treinados três modelos:
 
 ---
 
-## 9. Avaliação
+## 9. Avaliação dos modelos
 
-Os modelos são comparados utilizando:
+Os modelos são comparados utilizando métricas como:
 
 * Accuracy
 * Precision
@@ -297,118 +180,42 @@ Os modelos são comparados utilizando:
 * F1-Score
 * ROC-AUC
 * Matriz de Confusão
-* Classification Report
 
 ---
 
-## 10. Comparação
+## 10. Registro dos experimentos
 
-É criada uma tabela contendo todas as métricas dos modelos.
-
-Também são gerados gráficos comparativos.
-
----
-
-## 11. Registro dos experimentos
-
-O notebook registra automaticamente todas as métricas utilizando:
-
-```
-MLflow
-```
-
-Cada modelo recebe um experimento contendo:
-
-* Accuracy
-* Precision
-* Recall
-* F1
-* ROC-AUC
-
----
-
-## 12. Exportação
-
-Ao final da execução é criado o arquivo:
-
-```
-comparacao_modelos.csv
-```
-
-contendo a comparação entre os modelos.
+Os resultados são registrados utilizando **MLflow**, permitindo acompanhar o desempenho de cada modelo treinado.
 
 ---
 
 # Resultados Esperados
 
-Ao final da execução deverão ser obtidos:
+Ao término da execução, o notebook apresenta:
 
 * análise exploratória completa;
 * gráficos estatísticos;
-* modelos treinados;
-* métricas de desempenho;
-* matriz de confusão;
-* comparação entre modelos;
-* arquivo `comparacao_modelos.csv`;
-* histórico dos experimentos registrado pelo MLflow.
+* métricas de desempenho dos modelos;
+* matrizes de confusão;
+* comparação entre os algoritmos;
+* registro dos experimentos realizados no MLflow.
 
 ---
 
-# Executando o MLflow
+# Observações
 
-Caso deseje visualizar os experimentos registrados:
-
-```bash
-mlflow ui
-```
-
-Depois acesse no navegador:
-
-```
-http://127.0.0.1:5000
-```
+* O notebook foi desenvolvido especificamente para o ambiente **Google Colab**.
+* O dataset deve ser enviado quando solicitado durante a execução.
+* Recomenda-se executar todas as células em sequência para garantir a reprodução correta dos resultados.
 
 ---
 
-# Possíveis Problemas
+# Video
 
-## Erro ao encontrar o dataset
-
-Verifique se:
-
-```
-water_potability.csv
-```
-
-está na mesma pasta do notebook.
-
----
-
-## Erro de biblioteca não instalada
-
-Execute novamente:
-
-```bash
-pip install -r requirements.txt
-```
-
----
-
-## Erro relacionado ao Google Colab
-
-A célula:
-
-```python
-from google.colab import files
-uploaded = files.upload()
-```
-
-é exclusiva do Google Colab.
-
-Caso utilize Jupyter Notebook local, essa etapa pode ser ignorada.
+* Link para video, elaborando o que foi feito no projeto: https://www.youtube.com/watch?v=IsMEZbfUdWY
 
 ---
 
 # Autores
 
-Projeto desenvolvido para fins acadêmicos na disciplina de Ciência de Dados e Machine Learning, com foco na automação da análise da crise global da água potável.
+Projeto desenvolvido para fins acadêmicos na disciplina de Ciência de Dados e Machine Learning, com foco na automação da análise de dados relacionados à crise global da água potável.
